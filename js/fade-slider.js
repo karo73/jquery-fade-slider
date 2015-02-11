@@ -59,11 +59,11 @@
 						}
 						
 						if (degree == true) {
-							$(".slider-box", fs.self).eq(curElem).stop().fadeIn(settings.slideSpeed, function(){
+							$(".slider-box", fs.self).eq(curElem).stop().fadeIn(settings.speed, function(){
 								fs.content.removeClass('moving');
 							});
 						} else {
-							$(".slider-box", fs.self).eq(curElem).stop().fadeOut(settings.slideSpeed, function(){
+							$(".slider-box", fs.self).eq(curElem).stop().fadeOut(settings.speed, function(){
 								fs.content.removeClass('moving');
 							});
 						}
