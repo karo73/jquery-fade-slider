@@ -188,13 +188,13 @@
 							allowPageScroll  : 'vertical',
 							swipe            : function(event, direction, distance, duration, fingerCount, fingerData) {
 								
-								if (direction == "left") {
+								if (direction == "left" && distance) {
 									fs.content.addClass('moving');
 									fs.linkPreventClick( $('.slider-box', fs.wrapper) );
 									fs.next.click();
 								}
 								
-								if (direction == "right") {
+								if (direction == "right" && distance) {
 									fs.content.addClass('moving');
 									fs.linkPreventClick( $('.slider-box', fs.wrapper) );
 									fs.prev.click();
