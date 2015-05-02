@@ -187,7 +187,7 @@
 							allowPageScroll  : 'vertical',
 							swipeStatus      : function(event, phase, direction, distance, duration, fingerCount){
 								
-								if ((direction == 'left' || direction == 'up') && distance && phase == 'end') {
+								if (((direction == 'left' || direction == 'up') && distance && phase == 'end') || phase == 'cancel') {
 									fs.content.addClass('moving');
 									fs.linkPreventClick( $('.slider-box', fs.wrapper) );
 									fs.next.click();
@@ -197,12 +197,6 @@
 									fs.content.addClass('moving');
 									fs.linkPreventClick( $('.slider-box', fs.wrapper) );
 									fs.prev.click();
-								}
-								
-								if (phase == 'cancel') {
-									fs.content.addClass('moving');
-									fs.linkPreventClick( $('.slider-box', fs.wrapper) );
-									fs.next.click();
 								}
 								
 							}
