@@ -183,23 +183,30 @@
 						
 						fs.content.swipe({
 							threshold        : 0,
-							fingers          : 'all',
 							excludedElements : 'button, input, select, textarea, .noSwipe',
 							allowPageScroll  : 'vertical',
-							swipe            : function(event, direction, distance, duration, fingerCount, fingerData) {
+							swipeStatus      : function(event, phase, direction, distance, duration, fingerCount){
 								
-								if (direction == "left" && distance) {
+								if ((direction == 'left' || direction == 'up') && distance && phase == 'end') {
 									fs.content.addClass('moving');
 									fs.linkPreventClick( $('.slider-box', fs.wrapper) );
 									fs.next.click();
 								}
 								
-								if (direction == "right" && distance) {
+								if ((direction == 'right' || direction == 'down') && distance && phase == 'end') {
 									fs.content.addClass('moving');
 									fs.linkPreventClick( $('.slider-box', fs.wrapper) );
 									fs.prev.click();
 								}
+								
+								if (phase == 'cancel') {
+									fs.content.addClass('moving');
+									fs.linkPreventClick( $('.slider-box', fs.wrapper) );
+									fs.next.click();
+								}
+								
 							}
+
 						});
 					}
 					
